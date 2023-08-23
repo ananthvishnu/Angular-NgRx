@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
 import { AsyncPipe } from '@angular/common';
+import { selectCount, selectDoubleCount } from '../store/counter.selectors';
 
 // Define a component using the Component decorator
 @Component({
@@ -15,11 +16,11 @@ import { AsyncPipe } from '@angular/common';
 })
 export class CounterOutputComponent  {
   count$!: Observable<number>;
+  doubleCount$!: Observable<number>
 
   constructor(private store: Store<{counter:number}>){
-   // Select the 'counter' slice of state from the store
-    this.count$ = store.select('counter')
-    this.count$.subscribe()// Subscribe to the count$ observable
-
+   //? Select the 'counter' slice of state from the store
+    this.count$ = store.select(selectCount)
+    this.doubleCount$ = store.select(selectDoubleCount)
   }
 }
