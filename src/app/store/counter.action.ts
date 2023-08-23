@@ -1,16 +1,19 @@
 //? Import necessary functions and modules from @ngrx/store
 import { createAction, props } from '@ngrx/store';
 
+//? Create an action to initialize the counter
 export const init = createAction('[Counter] Init');
 
+//? Create an action to set the counter value
 export const set = createAction('[Counter] Set', props<{ value: number }>());
 
-//? Create an action using createAction function
+//? Create an action to increment the counter value
 export const increment = createAction(
-  '[Counter] Increment', // Action type (a description for debugging)
-  props<{ value: number }>() // Payload structure for the action
+  '[Counter] Increment', 
+  props<{ value: number }>()
 );
 
+//? Create an action to decrement the counter value
 export const decrement = createAction(
   '[Counter] Decrement',
   props<{ value: number }>()

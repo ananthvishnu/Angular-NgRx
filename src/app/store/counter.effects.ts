@@ -30,7 +30,7 @@ export class CounterEffects {
           localStorage.setItem('count', counter.toString());
         })
       ),
-    { dispatch: false }
+    { dispatch: false } //? This effect doesn't dispatch any action
   );
 
   constructor(
